@@ -125,4 +125,5 @@ BeeHive本身会监听一些系统事件和应用事件，比如App生命周期�
 }
 ```
 
-
+附上简书地址：
+https://www.jianshu.com/p/467e88875b11
