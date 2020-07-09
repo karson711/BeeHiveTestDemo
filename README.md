@@ -30,7 +30,16 @@ allServicesDict是一个可变字典，其中key是protocol的字符串名称，
 ###### 具体注册方式有下列三种
 
 a. 使用BeeHive类的-[registerService:service:]
+```
+[[BeeHive shareInstance] registerService:@protocol(ModuleAServiceProtocol) service:[ModuleAService class]];
+```
 
 b. 使用宏BeeHiveService
+```
+@BeeHiveService(ModuleCServiceProtocol,ModuleCViewController)
+```
 
-c. 使用plist文件  [BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
+c. 使用plist文件  
+```
+[BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
+```
