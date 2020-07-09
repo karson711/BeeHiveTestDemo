@@ -39,7 +39,7 @@ c. 使用plist文件
 [BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
 ```
 
-### 调用具体实现类方法:
+##### 调用具体实现类方法:
 ```
 id<ModuleAServiceProtocol> moduleAService = [[BeeHive shareInstance] createService:@protocol(ModuleAServiceProtocol)];
 ```
