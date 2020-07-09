@@ -1,13 +1,8 @@
 # BeeHiveTestDemo - 学习BeeHive组件化框架Demo
 
-## 一、通过构建中间层来组件化项目，共需要三步：
+## 一、组件化
 
-1. 创建protocol
-
-2. 创建impClass
-
-3. 存储protocol-impClass映射关系
-
+#### 通过构建中间层来组件化项目，共需要三步：
 
 #### 1. 创建protocol
 
@@ -48,3 +43,72 @@ c. 使用plist文件
 ```
 id<ModuleAServiceProtocol> moduleAService = [[BeeHive shareInstance] createService:@protocol(ModuleAServiceProtocol)];
 ```
+
+## 二、事件分发
+
+BeeHive本身会监听一些系统事件和应用事件，比如App生命周期、推送、handoff等，当事件发生时，BeeHive将其分发给各个模块，然后各个业务模块就可以在自己的Module类中调用各自的响应方法。
+
+#### 实现事件分发，共需要三步：
+
+#### 1、初始化Appdelegate需要继承BHAppdelegate
+```
+#import <UIKit/UIKit.h>
+#import <BeeHive.h>
+
+@interface AppDelegate : BHAppDelegate <UIApplicationDelegate>
+
+
+@end
+```
+```
+//AppDelegate.m
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [BHContext shareInstance].application = application;
+    [BHContext shareInstance].launchOptions = launchOptions;
+    [BHContext shareInstance].moduleConfigName = @"BeeHive.bundle/BeeHive";
+    [BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
+    
+    [BeeHive shareInstance].enableException = YES;
+    [[BeeHive shareInstance] setContext:[BHContext shareInstance]];
+    
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    ...
+    ...
+    return YES;
+}
+```
+
+#### 2、创建并注册Module类
+
+每一个需要响应事件的模块，都需要新建一个对应的Module类，Module类需要遵循BHModuleProtocol协议。然后注册ModuleAModule类。
+```
+#import "ModuleAModule.h"
+#import "BHService.h"
+
+@BeeHiveMod(ModuleAModule)
+@interface ModuleAModule() <BHModuleProtocol>
+@end
+
+@implementation ModuleAModule
+
+- (void)modContinueUserActivity:(BHContext *)context{
+    
+    //实现具体的事件处理
+    
+}
+
+@end
+```
+注册方式如下：
+```
+//注册Module 方式一
+@BeeHiveMod(ModuleAModule)
+
+//注册Module 方式二
+[BeeHive registerDynamicModule:[ModuleAModule class]];
+```
+调用具体事件是在- (void)modContinueUserActivity:(BHContext *)context中进行的。
+
+
