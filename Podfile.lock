@@ -1,0 +1,16 @@
+PODS:
+  - BeeHive (1.6.0)
+
+DEPENDENCIES:
+  - BeeHive
+
+SPEC REPOS:
+  https://gitee.com/mirrors/CocoaPods-Specs.git:
+    - BeeHive
+
+SPEC CHECKSUMS:
+  BeeHive: 64c01ddec33b9ef8813701e075eeb732327d0f75
+
+PODFILE CHECKSUM: de914ed6176c6172c7c5b131ecc670a3b8a5e317
+
+COCOAPODS: 1.9.3
