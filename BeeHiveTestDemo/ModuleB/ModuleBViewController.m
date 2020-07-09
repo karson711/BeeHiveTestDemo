@@ -8,6 +8,8 @@
 
 #import "ModuleBOneViewController.h"
 #import "ModuleBViewController.h"
+#import "ModuleBService.h"
+#import "BHService.h"
 
 @interface ModuleBViewController ()
 
@@ -39,9 +41,11 @@
 
 
 - (void)btnClick{
+    id<ModuleBServiceProtocol> moduleBService = [[BeeHive shareInstance] createService:@protocol(ModuleBServiceProtocol)];
+    [moduleBService pushToModuleBOneViewController];
     
-    ModuleBOneViewController *one = [ModuleBOneViewController new];
-    [self.navigationController pushViewController:one animated:YES];
+//    ModuleBOneViewController *one = [ModuleBOneViewController new];
+//    [self.navigationController pushViewController:one animated:YES];
 }
 
 @end

@@ -26,16 +26,20 @@
     [BHContext shareInstance].application = application;
     [BHContext shareInstance].launchOptions = launchOptions;
     
-    //注册protocol和impClass关联关系方式一  plist文件注册
+    //注册protocol和impClass映射关系方式一  plist文件注册
 //    [BHContext shareInstance].moduleConfigName = @"BeeHive.bundle/BeeHive";
 //    [BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
     
-    [BeeHive shareInstance].enableException = YES;
+    //是否开启异常模式 - 一般在调试模式下，应该开启。生产模式下，应该关闭。
+    [BeeHive shareInstance].enableException = NO;
+    #ifdef DEBUG
+        [BeeHive shareInstance].enableException = YES;
+    #endif
     [[BeeHive shareInstance] setContext:[BHContext shareInstance]];
     
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     
-    //注册protocol和impClass关联关系方式二
+    //注册protocol和impClass映射关系方式二
     [[BeeHive shareInstance] registerService:@protocol(ModuleAServiceProtocol) service:[ModuleAService class]];
     [[BeeHive shareInstance] registerService:@protocol(ModuleBServiceProtocol) service:[ModuleBService class]];
 

@@ -9,6 +9,10 @@
 #import "BHServiceProtocol.h"
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol ModuleCServiceProtocol <NSObject, BHServiceProtocol>
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import "BHServiceProtocol.h"
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol ModuleBServiceProtocol <NSObject, BHServiceProtocol>
 
 - (UIViewController *)getModuleBMainViewController;
@@ -16,3 +18,5 @@
 - (void)pushToModuleBOneViewController;
 
 @end
+
+NS_ASSUME_NONNULL_END

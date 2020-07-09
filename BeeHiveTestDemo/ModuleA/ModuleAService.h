@@ -7,7 +7,6 @@
 //
 
 #import "BHService.h"
-
 #import <Foundation/Foundation.h>
 
 @interface ModuleAService : NSObject<ModuleAServiceProtocol>

@@ -12,3 +12,4 @@
 #import "ModuleAServiceProtocol.h"
 #import "ModuleBServiceProtocol.h"
 #import "ModuleCServiceProtocol.h"
+#import "LoginServiceProtocol.h"

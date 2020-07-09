@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F09ED7B24B6B85900FFBCDE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F09ED7A24B6B85900FFBCDE /* LoginViewController.m */; };
+		8F09ED7E24B6B89B00FFBCDE /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F09ED7D24B6B89B00FFBCDE /* LoginService.m */; };
 		8FFDBB9424B5B3FB00375AB7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFDBB9324B5B3FB00375AB7 /* AppDelegate.m */; };
 		8FFDBB9F24B5B3FE00375AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDBB9E24B5B3FE00375AB7 /* Assets.xcassets */; };
 		8FFDBBA224B5B3FE00375AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDBBA024B5B3FE00375AB7 /* LaunchScreen.storyboard */; };
@@ -45,6 +47,11 @@
 
 /* Begin PBXFileReference section */
 		1FA29EFBF1DB0E428769E906 /* Pods-BeeHiveTestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeHiveTestDemo.debug.xcconfig"; path = "Target Support Files/Pods-BeeHiveTestDemo/Pods-BeeHiveTestDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8F09ED7724B6B77500FFBCDE /* LoginServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginServiceProtocol.h; sourceTree = "<group>"; };
+		8F09ED7924B6B85900FFBCDE /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8F09ED7A24B6B85900FFBCDE /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8F09ED7C24B6B89B00FFBCDE /* LoginService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginService.h; sourceTree = "<group>"; };
+		8F09ED7D24B6B89B00FFBCDE /* LoginService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginService.m; sourceTree = "<group>"; };
 		8FFDBB8F24B5B3FB00375AB7 /* BeeHiveTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeHiveTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFDBB9224B5B3FB00375AB7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FFDBB9324B5B3FB00375AB7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +128,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8F09ED7824B6B83600FFBCDE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8F09ED7924B6B85900FFBCDE /* LoginViewController.h */,
+				8F09ED7A24B6B85900FFBCDE /* LoginViewController.m */,
+				8F09ED7C24B6B89B00FFBCDE /* LoginService.h */,
+				8F09ED7D24B6B89B00FFBCDE /* LoginService.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8FFDBB8624B5B3FB00375AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +171,7 @@
 				8FFDBBE424B5CAE100375AB7 /* ModuleB */,
 				8FFDBBD724B5CABF00375AB7 /* ModuleA */,
 				8FFDBBCF24B5C71400375AB7 /* TabbarViewController.h */,
+				8F09ED7824B6B83600FFBCDE /* Login */,
 				8FFDBBCD24B5C71300375AB7 /* TabbarViewController.m */,
 				8FFDBB9E24B5B3FE00375AB7 /* Assets.xcassets */,
 				8FFDBBA024B5B3FE00375AB7 /* LaunchScreen.storyboard */,
@@ -226,6 +245,7 @@
 				8FFDBBF624B5CB2400375AB7 /* ModuleAServiceProtocol.h */,
 				8FFDBBF824B5CB2500375AB7 /* ModuleBServiceProtocol.h */,
 				8FFDBBF724B5CB2500375AB7 /* ModuleCServiceProtocol.h */,
+				8F09ED7724B6B77500FFBCDE /* LoginServiceProtocol.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -413,10 +433,12 @@
 			files = (
 				8FFDBBEF24B5CAF000375AB7 /* ModuleBModule.m in Sources */,
 				8FFDBBE324B5CAC900375AB7 /* ModuleAService.m in Sources */,
+				8F09ED7B24B6B85900FFBCDE /* LoginViewController.m in Sources */,
 				8FFDBBF424B5CB0500375AB7 /* ModuleCViewController.m in Sources */,
 				8FFDBBED24B5CAF000375AB7 /* ModuleBViewController.m in Sources */,
 				8FFDBB9424B5B3FB00375AB7 /* AppDelegate.m in Sources */,
 				8FFDBBE224B5CAC900375AB7 /* ModuleAModule.m in Sources */,
+				8F09ED7E24B6B89B00FFBCDE /* LoginService.m in Sources */,
 				8FFDBBE024B5CAC900375AB7 /* ModuleAOneViewController.m in Sources */,
 				8FFDBBA524B5B3FE00375AB7 /* main.m in Sources */,
 				8FFDBBE124B5CAC900375AB7 /* ModuleAViewController.m in Sources */,

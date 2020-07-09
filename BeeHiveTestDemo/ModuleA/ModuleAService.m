@@ -9,6 +9,7 @@
 #import "ModuleAOneViewController.h"
 #import "ModuleAViewController.h"
 #import "ModuleAService.h"
+#import "LoginService.h"
 
 @implementation ModuleAService
 
@@ -17,12 +18,18 @@
 }
 
 - (void )pushToModuleAOneViewController{
-    UITabBarController *tab = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-    UINavigationController *nav = tab.selectedViewController;
-    ModuleAOneViewController *one = [ModuleAOneViewController new];
     
-    [nav pushViewController:one animated:YES];
+    id<LoginServiceProtocol> loginService = [[BeeHive shareInstance] createService:@protocol(LoginServiceProtocol)];
     
+    [loginService loginIfNeedWithCompleteBlock:^(BOOL isLogined) {
+        if (isLogined) {
+            UITabBarController *tab = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+            UINavigationController *nav = tab.selectedViewController;
+            ModuleAOneViewController *one = [ModuleAOneViewController new];
+            
+            [nav pushViewController:one animated:YES];
+        }
+    }];
 }
 
 @end

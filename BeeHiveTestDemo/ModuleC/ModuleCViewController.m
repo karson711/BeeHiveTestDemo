@@ -9,7 +9,7 @@
 #import "BHService.h"
 #import "ModuleCViewController.h"
 
-//注册protocol和impClass关联关系方式三
+//注册protocol和impClass映射关系方式三
 @BeeHiveService(ModuleCServiceProtocol,ModuleCViewController)
 @interface ModuleCViewController ()<ModuleCServiceProtocol>
 
