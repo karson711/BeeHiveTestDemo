@@ -109,6 +109,20 @@ BeeHive本身会监听一些系统事件和应用事件，比如App生命周期�
 //注册Module 方式二
 [BeeHive registerDynamicModule:[ModuleAModule class]];
 ```
-调用具体事件是在- (void)modContinueUserActivity:(BHContext *)context中进行的。
+#### 3、调用响应方法
+是在- (void)modContinueUserActivity:(BHContext *)context中进行的。
+```
+- (void)modContinueUserActivity:(BHContext *)context{
+    //注册Module 方式二
+//    [BeeHive registerDynamicModule:[ModuleAModule class]];
+    
+    NSUserActivity *userActivity = context.userActivityItem.userActivity;
+    if ([userActivity.activityType isEqualToString:@"com.company.app.moduleA.one"]) {
+    
+        id<ModuleAServiceProtocol> moduleAService = [[BeeHive shareInstance] createService:@protocol(ModuleAServiceProtocol)];
+        [moduleAService pushToModuleAOneViewController];
+    }
+}
+```
 
 
