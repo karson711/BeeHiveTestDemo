@@ -2,8 +2,11 @@
 学习BeeHive组件化框架Demo
 
 ##一、通过构建中间层来组件化项目，共需要三步：
+
 1. 创建protocol
+
 2. 创建impClass
+
 3. 存储protocol-impClass映射关系
 
 
@@ -23,5 +26,7 @@ impClass是protocol对应的响应类，它需要遵守这个protocol协议，�
 ######具体注册方式有下列三种
 
 a. 使用BeeHive类的-[registerService:service:]
+
 b. 使用宏BeeHiveService
+
 c. 使用plist文件  [BHContext shareInstance].serviceConfigName = @"BeeHive.bundle/BHService";
